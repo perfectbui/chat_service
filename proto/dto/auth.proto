@@ -1,0 +1,23 @@
+syntax = "proto3";
+package dto;
+option go_package = "github.com/perfectbui/chat/pb/dto";
+
+import "types/common.proto";
+
+message VerifyTokenRequest { string token = 1; }
+
+message VerifyTokenResponse {
+  int64 userID = 1;
+  types.HttpStatus status = 2;
+}
+
+message CreateTokensRequest { int64 userID = 1; }
+
+message CreateTokensResponse {
+  string accessToken = 1;
+  string refreshToken = 2;
+}
+
+message DeleteRefreshTokenRequest { string token = 1; }
+
+message DeleteRefreshTokenResponse { types.HttpStatus status = 1; }

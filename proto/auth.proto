@@ -1,0 +1,39 @@
+syntax = "proto3";
+package auth;
+option go_package = "github.com/perfectbui/chat/pb";
+
+import "dto/auth.proto";
+import "google/api/annotations.proto";
+
+service AuthService {
+  rpc VerifyAccessToken(dto.VerifyTokenRequest)
+      returns (dto.VerifyTokenResponse) {
+    option (google.api.http) = {
+      post : "/v1/verify",
+      body : "*"
+    };
+  }
+
+  rpc VerifyRefreshToken(dto.VerifyTokenRequest)
+      returns (dto.VerifyTokenResponse) {
+    option (google.api.http) = {
+      post : "/v1/verify",
+      body : "*"
+    };
+  }
+
+  rpc CreateTokens(dto.CreateTokensRequest) returns (dto.CreateTokensResponse) {
+    option (google.api.http) = {
+      post : "/v1/tokens",
+      body : "*"
+    };
+  }
+
+  rpc DeleteRefreshToken(dto.DeleteRefreshTokenRequest)
+      returns (dto.DeleteRefreshTokenResponse) {
+    option (google.api.http) = {
+      put : "/v1/token/delete",
+      body : "*"
+    };
+  }
+}

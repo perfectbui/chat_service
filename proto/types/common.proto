@@ -1,0 +1,15 @@
+syntax = "proto3";
+package types;
+option go_package = "github.com/perfectbui/chat/pb/types";
+
+enum HttpStatus {
+  Ok = 0;
+  Forbiden = 1;
+  BadRequest = 2;
+  Existed = 3;
+  Invalid = 4;
+  NotFound = 5;
+  Error = 6;
+}
+
+message Empty {}

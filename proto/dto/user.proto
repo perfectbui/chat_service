@@ -1,0 +1,36 @@
+syntax = "proto3";
+package dto;
+option go_package = "github.com/perfectbui/chat/pb/dto";
+
+import "types/common.proto";
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  int64 userID = 1;
+  types.HttpStatus status = 2;
+}
+
+message LogoutResponse { types.HttpStatus status = 1; }
+
+message RegisterRequest {
+  string email = 1;
+  string password = 2;
+  string username = 3;
+}
+
+message RegisterResponse {
+  int64 userID = 1;
+  string email = 2;
+  types.HttpStatus status = 3;
+}
+
+message GetCurrentUserResponse {
+  int64 userID = 1;
+  string accessToken = 2;
+  string refreshToken = 3;
+  types.HttpStatus status = 4;
+}
